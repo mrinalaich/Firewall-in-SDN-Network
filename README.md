@@ -61,12 +61,14 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
 * Layer-4 Destination Process blocked  
  * Run two IPerf servers on Host-h3  
    ```
-   h3 iperf -s -p 80 &  
+   h3 iperf -s -p 80 &
+   
    h3 iperf -s -p 22 &
    ```
  * Connect to both the servers  
    ```
-   h2 iperf –c h3 –p 80 –t 2 –i 1  
+   h2 iperf –c h3 –p 80 –t 2 –i 1
+   
    h2 iperf –c h3 –p 22 –t 2 –i 1
    ```
  * Output: All traffic to Destination h3 and port 80 are dropped by the Controller.
