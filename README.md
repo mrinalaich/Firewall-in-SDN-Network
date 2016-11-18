@@ -38,6 +38,19 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
    python mininetScript.py
    ```
 
+## Firewall Rules installed in the controller
+
+* Layer-3 Host-to-Host Connectivity  
+  Block all traffic from Host-h1 to Host-h4
+  ```
+  AddRule(dataPath_id, 10.0.0.1, 10.0.0.4, NULL)
+  ```
+* Layer-4 Destination Process blocked  
+  Block all traffic destined to Process h3 at port 80
+  ```
+  AddRule(dataPath_id, NULL, 10.0.0.3, 80)
+  ```
+
 ## Running the Tests
 * Layer-3 Host-to-Host Connectivity blocked  
   ```
@@ -45,7 +58,7 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
   ```
  * Output: The packets will be dropped by the Controller.
 
-* Layer-4 Process blocked  
+* Layer-4 Destination Process blocked  
  * Run two IPerf servers on Host-h3  
    ```
    h3 iperf -s -p 80 &
