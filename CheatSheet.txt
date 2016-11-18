@@ -1,0 +1,39 @@
+Mininet:
+----------------------------------------------------------------
+1. Starting with a topology of 1-switch and 4 nodes
+mn --topo=single,4 --controller=remote,ip=127.0.0.1,port=6633 
+
+2. Show all network entities
+dump
+
+3. Clean all mininet configuration
+mn -c
+
+4. Start HTTP server in background on Node-h4 (Run a simple web server and client)
+h3 python -m SimpleHTTPServer 80 &
+h3 kill %python
+
+via Script--
+h1.cmd('python -m SimpleHTTPServer 80 &')
+h0.cmd('wget -O - h1')
+
+5. Ping an HTTP server
+h2 wget 10.0.0.3
+h2 wget -O - h3
+
+6. Ping between nodes
+h1 ping h2
+
+7. Iperf execution:
+Server:
+h3 iperf -s -p 80 &
+h3 iperf -s -p 22 &
+
+Client:
+h2 iperf –c h3 –p 80 –t 2 –i 1
+
+
+
+POX:
+---------------------------------------------------------------
+1. ./pox.py log.level --DEBUG l2_firewall.py
