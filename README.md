@@ -33,25 +33,23 @@ python mininetScript.py
   
 * Running sample tests  
  * Layer-3 Host-to-Host Connectivity blocked  
- * Result: The packets will be dropped by the Controller.
-```
-h1 ping h4
-```
- 
+   ```
+   h1 ping h4
+   ``` 
+  * Output: The packets will be dropped by the Controller.
 
-* Layer-4 Process blocked  
- * Run two IPerf servers on Host-h3  
-```
-h3 iperf -s -p 80 &
-h3 iperf -s -p 22 &
-```
-
- * Connect to both the servers  
- * Result: All traffic to Destination h3 and port 80 are dropped by the Controller.  
-```
-h2 iperf –c h3 –p 80 –t 2 –i 1
-h2 iperf –c h3 –p 22 –t 2 –i 1
-```
+ * Layer-4 Process blocked  
+  * Run two IPerf servers on Host-h3  
+   ```
+   h3 iperf -s -p 80 &
+   h3 iperf -s -p 22 &
+   ```
+  * Connect to both the servers  
+    ```
+    h2 iperf –c h3 –p 80 –t 2 –i 1
+    h2 iperf –c h3 –p 22 –t 2 –i 1
+    ```
+  * Output: All traffic to Destination h3 and port 80 are dropped by the Controller.
 
 ## Authors
 * **Mrinal Aich** - [Link](http://cse.iith.ac.in/)
