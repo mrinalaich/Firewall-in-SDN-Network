@@ -19,38 +19,39 @@ In this project, I have implemented Layer 3 & 4 firewall by proactive policies a
 ### Running the tests
 There are two scripts namely, mininetScript.py and poxController_firewall.py which will run the mininet based ovsSwitch and POX Controller respectively.
 
-* Running the POX Controller
-Go to the pox directory installed in your setup and execute
+* Running the POX Controller  
+ * Go to the pox directory installed in your setup and execute
 ```
 ./pox.py log.level --DEBUG poxController_firewall.py
 ```
 
-* Running the Mininet and OVS-Switch
-1. Execute the python script  
+* Running the Mininet and OVS-Switch  
+ * Execute the python script  
 ```
 python mininetScript.py
 ```
   
 * Running sample tests  
-1. Layer-3 Host-to-Host Connectivity blocked  
+ * Layer-3 Host-to-Host Connectivity blocked  
+ * Result: The packets will be dropped by the Controller.
 ```
 h1 ping h4
 ```
-Result: The packets will be dropped by the Controller.  
+ 
 
-2. Layer-4 Process blocked
-* Run two IPerf servers on Host-h3  
+* Layer-4 Process blocked  
+ * Run two IPerf servers on Host-h3  
 ```
 h3 iperf -s -p 80 &
 h3 iperf -s -p 22 &
 ```
 
-* Connect to both the servers  
-```h2 iperf –c h3 –p 80 –t 2 –i 1
+ * Connect to both the servers  
+ * Result: All traffic to Destination h3 and port 80 are dropped by the Controller.  
+```
+h2 iperf –c h3 –p 80 –t 2 –i 1
 h2 iperf –c h3 –p 22 –t 2 –i 1
 ```
-Result: All traffic to Destination h3 and port 80 are dropped by the Controller.  
-
 
 ## Authors
 * **Mrinal Aich** - [Link](http://cse.iith.ac.in/)
