@@ -35,15 +35,15 @@ python mininetScript.py
  * Layer-3 Host-to-Host Connectivity blocked  
    ```
    h1 ping h4
-   ``` 
+   ```
   * Output: The packets will be dropped by the Controller.
 
  * Layer-4 Process blocked  
   * Run two IPerf servers on Host-h3  
-   ```
-   h3 iperf -s -p 80 &
-   h3 iperf -s -p 22 &
-   ```
+    ```
+    h3 iperf -s -p 80 &
+    h3 iperf -s -p 22 &
+    ```
   * Connect to both the servers  
     ```
     h2 iperf –c h3 –p 80 –t 2 –i 1
