@@ -16,7 +16,7 @@ In this project, I have implemented Layer 3 & 4 firewall by proactive policies a
 ![alt tag](https://github.com/MrinalAich/SDN/blob/master/Flow_Diagram.png)
 ---
 
-### Installing
+## Installing
 There are two scripts namely, mininetScript.py and poxController_firewall.py which will run the mininet based ovsSwitch and POX Controller respectively.
 
 * Running the POX Controller  
@@ -30,7 +30,9 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
    ```
    python mininetScript.py
    ```
-### Running the Tests
+---
+
+## Running the Tests
 * Layer-3 Host-to-Host Connectivity blocked  
   ```
   h1 ping h4
