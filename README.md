@@ -41,12 +41,12 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
 ## Firewall Rules installed in the controller
 
 * Layer-3 Host-to-Host Connectivity  
-  Block all traffic from Host-h1 to Host-h4
+  Block all traffic from Host-h1 to Host-h4  
   ```
   AddRule(dataPath_id, 10.0.0.1, 10.0.0.4, NULL)
   ```
 * Layer-4 Destination Process blocked  
-  Block all traffic destined to Process h3 at port 80
+  Block all traffic destined to Process h3 at port 80  
   ```
   AddRule(dataPath_id, NULL, 10.0.0.3, 80)
   ```
