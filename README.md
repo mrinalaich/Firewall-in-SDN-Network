@@ -10,9 +10,11 @@ In this project, I have implemented Layer 3 & 4 firewall by proactive policies a
 
 ---
 ## Architecture
+There are one each POX Controller and OVS-Switch alongwith 4 Hosts forming an SDN Network.
 ![alt tag](https://github.com/MrinalAich/SDN/blob/master/Architecture.png)
 ---
 ## Flow Diagram
+The flowchart shows how Rule check is done by the SDN controller on receiving a OFPT_PACKET_IN message from OVS-Switch.
 ![alt tag](https://github.com/MrinalAich/SDN/blob/master/Flow_Diagram.png)
 ---
 
@@ -30,6 +32,7 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
    ```
    python mininetScript.py
    ```
+
 ---
 
 ## Running the Tests
@@ -42,15 +45,19 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
 * Layer-4 Process blocked  
  * Run two IPerf servers on Host-h3  
    ```
-   h3 iperf -s -p 80 &  
+   h3 iperf -s -p 80 &
+   
    h3 iperf -s -p 22 &
    ```
  * Connect to both the servers  
    ```
-   h2 iperf –c h3 –p 80 –t 2 –i 1  
+   h2 iperf –c h3 –p 80 –t 2 –i 1
+   
    h2 iperf –c h3 –p 22 –t 2 –i 1
    ```
  * Output: All traffic to Destination h3 and port 80 are dropped by the Controller.
+
+---
 
 ## Authors
 * **Mrinal Aich** - [Link](http://cse.iith.ac.in/)
