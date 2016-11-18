@@ -8,21 +8,26 @@ In SDN Networks, the network intelligence is logically centralized in software-b
 SDN could be used to replace expensive Layer 4-7 firewalls, load-balancers, and IPS/IDS with cost-effective high-performance switches with a logically centralized controller.
 In this project, I have implemented Layer 3 & 4 firewall by proactive policies and managed to block several applications like host-to-host connectivity and destination process.
 
----
 ## Architecture
 There are one each POX Controller and OVS-Switch alongwith 4 Hosts forming an SDN Network.
 ![alt tag](https://github.com/MrinalAich/SDN/blob/master/Architecture.png)
+
 ---
-## Flow Diagram
+
+## Flow Diagram  
 The flowchart shows how Rule check is done by the SDN controller on receiving a OFPT_PACKET_IN message from OVS-Switch.
 ![alt tag](https://github.com/MrinalAich/SDN/blob/master/Flow_Diagram.png)
+
 ---
+
+## Prerequisites  
+Your system should install [mininet](http://mininet.org/download/) and [pox](https://openflow.stanford.edu/display/ONL/POX+Wiki#POXWiki-InstallingPOX) packages.
 
 ## Installing
 There are two scripts namely, mininetScript.py and poxController_firewall.py which will run the mininet based ovsSwitch and POX Controller respectively.
 
 * Running the POX Controller  
- * Go to the pox directory installed in your setup and execute
+ * Go to the pox directory installed in your setup and execute  
    ```
    ./pox.py log.level --DEBUG poxController_firewall.py
    ```
@@ -32,8 +37,6 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
    ```
    python mininetScript.py
    ```
-
----
 
 ## Running the Tests
 * Layer-3 Host-to-Host Connectivity blocked  
@@ -61,3 +64,6 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
 
 ## Authors
 * **Mrinal Aich** - [Link](http://cse.iith.ac.in/)
+
+## Acknowledgments
+* **Prof. Kotaro Kataoka** - [Link](http://cse.iith.ac.in/)
