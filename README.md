@@ -15,7 +15,8 @@ There are one each POX Controller and OVS-Switch alongwith 4 Hosts forming an SD
 ---
 
 ## Flow Diagram  
-The flowchart shows how Rule check is done by the SDN controller on receiving a OFPT_PACKET_IN message from OVS-Switch.
+The flowchart shows how rules are checked by the SDN controller on receiving a OFPT_PACKET_IN message from OVS-Switch.
+
 ![alt tag](https://github.com/MrinalAich/SDN/blob/master/FlowDiagram.png)
 
 ---
