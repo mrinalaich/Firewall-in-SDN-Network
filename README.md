@@ -29,7 +29,7 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
 * Running the POX Controller  
  * Go to the pox directory installed in your setup and execute  
    ```
-   ./pox.py log.level --DEBUG poxController_firewall.py
+   ./pox.py log.level --DEBUG poxController_firewall
    ```
 
 * Running the Mininet and OVS-Switch  
