@@ -78,6 +78,7 @@ class LearningSwitch (object):
     self.firewall = {}
 
     # Add a Couple of Rules Static entries
+    # Two type of rules: (srcip,dstip) or (dstip,dstport)
     self.AddRule(dpid_to_str(connection.dpid), EthAddr('00:00:00:00:00:02'), 0, 0, 0)
     self.AddRule(dpid_to_str(connection.dpid), 0, IPAddr('10.0.0.1'), IPAddr('10.0.0.4'),0)
     self.AddRule(dpid_to_str(connection.dpid), 0, 0, IPAddr('10.0.0.3'), 80)
@@ -191,10 +192,16 @@ class LearningSwitch (object):
         msg.buffer_id = event.ofp.buffer_id
         self.connection.send(msg)
       elif event.ofp.buffer_id is not None:
-        msg = of.ofp_packet_out()
-        msg.buffer_id = event.ofp.buffer_id
-        msg.in_port = event.port
-        self.connection.send(msg)
+        msg = of.ofp_flow_mod() #creats a flow modification message
+        msg.match = of.ofp_match.from_packet(event.parsed, event.port)
+        msg.match.dl_dst = None
+        msg.idle_timeout = 120
+        msg.hard_timeout = 120
+        msg.priority = 65535 #priority at which a rule will match, higher is better.
+        msg.command = of.OFPFC_MODIFY
+        msg.flags = of.OFPFF_CHECK_OVERLAP
+        msg.data = event.ofp
+        self.connection.send(msg)# send the message to the OpenFlow switch
 
     self.macToPort[packet.src] = event.port # 1
 
@@ -223,8 +230,7 @@ class LearningSwitch (object):
       a = packet.next
       log.debug("%i ARP %s %s => %s", inport, {arp.REQUEST:"request",arp.REPLY:"reply"}.get(a.opcode, 'op:%i' % (a.opcode,)), str(a.protosrc), str(a.protodst))
     elif isinstance(packet.next, ipv6):
-      # Do not consider ipv6 packets
-      drop()
+      # Do not handle ipv6 packets
       return
 
     if not self.transparent: # 2
