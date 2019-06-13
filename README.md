@@ -87,7 +87,7 @@ There are two scripts namely, mininetScript.py and poxController_firewall.py whi
 ---
 
 ## Authors
-* **Mrinal Aich** - [Link](http://cse.iith.ac.in/sites/default/files/Images/mtech%202016/CS16MTECH11009.pdf)
+* **Mrinal Aich** - [Link](https://www.linkedin.com/in/mrinal-aich-812ab316/)
 
 ## Acknowledgments
-* **Prof. Kotaro Kataoka** - [Link](http://cse.iith.ac.in/profile/faculty/kotaro/)
+* **Prof. Kotaro Kataoka** - [Link](https://www.iith.ac.in/~kotaro/)
