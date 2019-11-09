@@ -1,5 +1,5 @@
-# Firewall based SDN Network
-Staring with Firewall based SDN
+# Firewall in SDN Network
+Staring with Firewall in Software Defined Networks
 
 ## Introduction
 In SDN Networks, the network intelligence is logically centralized in software-based controllers (the control plane), and network devices become simple packet forwarding devices (the data plane) that can be programmed via an open interface (OpenFlow).
